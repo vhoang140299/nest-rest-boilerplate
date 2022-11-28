@@ -4,6 +4,8 @@ import { ValidationPipe } from '@nestjs/common';
 import { AppModule } from './app.module';
 import { MyLogger } from './modules/logger/logger.service';
 import { PrismaService } from './modules/prisma/prisma.service';
+import { TransformInterceptor } from './interceptors/transform.interceptor';
+import { HttpExecptionFilter } from './filters/http-execption.filter';
 // import { TransformInterceptor } from './interceptors/transform.interceptor';
 
 async function bootstrap() {
@@ -17,7 +19,8 @@ async function bootstrap() {
     }),
   );
 
-  // app.useGlobalInterceptors(new TransformInterceptor());
+  app.useGlobalInterceptors(new TransformInterceptor());
+  app.useGlobalFilters(new HttpExecptionFilter());
 
   const configService = app.get(ConfigService);
 
