@@ -4,7 +4,7 @@ import { ValidationPipe } from '@nestjs/common';
 import { AppModule } from './app.module';
 import { MyLogger } from './modules/logger/logger.service';
 import { PrismaService } from './modules/prisma/prisma.service';
-import { TransformInterceptor } from './interceptors/transform.interceptor';
+// import { TransformInterceptor } from './interceptors/transform.interceptor';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, {
@@ -17,7 +17,7 @@ async function bootstrap() {
     }),
   );
 
-  app.useGlobalInterceptors(new TransformInterceptor());
+  // app.useGlobalInterceptors(new TransformInterceptor());
 
   const configService = app.get(ConfigService);
 

@@ -7,7 +7,9 @@ import { UserModule } from './modules/user/user.module';
 import appConfig from './config/app.config';
 import { AccessTokenGuard } from './guards';
 import { APP_GUARD, APP_INTERCEPTOR } from '@nestjs/core';
-import { TransformInterceptor } from './interceptors/transform.interceptor';
+// import { TransformInterceptor } from './interceptors/transform.interceptor';
+import { MailModule } from './modules/mail/mail.module';
+import { PasswordModule } from './modules/password/password.module';
 
 @Module({
   imports: [
@@ -20,6 +22,8 @@ import { TransformInterceptor } from './interceptors/transform.interceptor';
     LoggerModule,
     AuthModule,
     UserModule,
+    MailModule,
+    PasswordModule,
   ],
   controllers: [],
   providers: [
